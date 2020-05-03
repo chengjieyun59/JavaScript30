@@ -45,6 +45,29 @@
   </style>
 
   <script>
+    // grab nodes once
+    const image = document.getElementsByTagName('img')[0];
+    const spacing = document.getElementById('spacing');
+    const blur = document.getElementById('blur');
+    const base = document.getElementById('base');
+    const spanJS = document.getElementsByClassName('hl')[0];
+
+    // initialize styles
+    image.style.padding = '10px';
+    image.style.filter = 'blur(10px)';
+    image.style.background = '#ffc600';
+    spanJS.style.color = '#ffc600';
+
+    // update style oninput
+    spacing.oninput = function() {
+      image.style.padding = spacing.value + 'px';
+    }
+    blur.oninput = function() {
+      image.style.filter = `blur(${blur.value}px)`;
+    }
+    base.oninput = function() {
+      image.style.background = spanJS.style.color = base.value;
+    }
   </script>
 
 </body>
